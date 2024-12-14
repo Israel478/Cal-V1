@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="calculator">
+    <h1>Calculator</h1>
+    
+    <div class="inputs">
+      <input type="number" id="input1" placeholder="Enter number 1" required>
+      <input type="text" id="operator" placeholder="Operator" readonly>
+      <input type="number" id="input2" placeholder="Enter number 2" required>
+    </div>
+
+    <div class="operators">
+      <label>
+        <input type="radio" name="operation" value="add"> +
+      </label>
+      <label>
+        <input type="radio" name="operation" value="subtract"> -
+      </label>
+      <label>
+        <input type="radio" name="operation" value="multiply"> ×
+      </label>
+      <label>
+        <input type="radio" name="operation" value="divide"> ÷
+      </label>
+      <label>
+        <input type="radio" name="operation" value="power"> ^ 
+      </label>
+      <label>
+        <input type="radio" name="operation" value="log"> log 
+      </label>
+      <label>
+        <input type="radio" name="operation" value="modulus">  % 
+      </label>
+    </div>
+
+    <button id="evaluate">Evaluate</button>
+    <div class="result">
+      <h2>Result: <span id="output"></span></h2>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
