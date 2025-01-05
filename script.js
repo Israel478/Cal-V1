@@ -1,60 +1,63 @@
-document.getElementById('evaluate').addEventListener('click', function() {
-    const input1 = parseFloat(document.getElementById('input1').value);
-    const input2 = parseFloat(document.getElementById('input2').value);
-    const operator = document.querySelector('input[name="operation"]:checked');
-  
-    if (isNaN(input1) || isNaN(input2) || !operator) {
-      alert('Please enter valid inputs and select an operation.');
-      return;
-    }
-  
-    let result;
-    const operatorValue = operator.value;
-    let operatorSymbol;
-  
-    switch (operatorValue) {
-      case 'add':
-        result = input1 + input2;
-        operatorSymbol = '+';
-        break;
-      case 'subtract':
-        result = input1 - input2;
-        operatorSymbol = '-';
-        break;
-      case 'multiply':
-        result = input1 * input2;
-        operatorSymbol = '×';
-        break;
-      case 'divide':
-        if (input2 === 0) {
-          alert('Cannot divide by zero!');
-          return;
-        }
-        result = input1 / input2;
-        operatorSymbol = '÷';
-        break;
-      case 'power':
-        result = Math.pow(input1, input2);
-        operatorSymbol = '^';
-        break;
-      case 'log':
-        if (input1 <= 0 || input2 <= 0) {
-          alert('Logarithms are undefined for zero or negative numbers.');
-          return;
-        }
-        result = Math.log(input2) / Math.log(input1);
-        operatorSymbol = 'log';
-        break;
-      case 'modulus':
-        result = input1 % input2;
-        operatorSymbol = '%';
-        break;
-      default:
-        alert('Unknown operation');
-        return;
-    }
-  
-    document.getElementById('operator').value = operatorSymbol;
-    document.getElementById('output').textContent = result;
-  });
-  
+function updateOperator(symbol) {
+  document.getElementById("operator").value = symbol;
+}
+
+function evaluateResult() {
+  const num1 = parseFloat(document.getElementById("input1").value);
+  const num2 = parseFloat(document.getElementById("input2").value);
+  const operator = document.getElementById("operator").value;
+  let result;
+
+  switch (operator) {
+    case '+':
+      result = num1 + num2;
+      break;
+    case '-':
+      result = num1 - num2;
+      break;
+    case '×':
+      result = num1 * num2;
+      break;
+    case '÷':
+      if (num2 === 0) {
+        result = 'Error: Division by zero';
+      } else {
+        result = num1 / num2;
+      }
+      break;
+    case '^':
+      result = Math.pow(num1, num2);
+      break;
+    case '%':
+      result = num1 % num2;
+      break;
+    case '√':
+      result = Math.sqrt(num1);
+      break;
+    case 'log':
+      if (num1 <= 0) {
+        result = 'Error: Logarithm of non-positive number';
+      } else {
+        result = Math.log(num1);
+      }
+      break;
+    case 'sin':
+      result = Math.sin(toRadians(num1));
+      break;
+    case 'cos':
+      result = Math.cos(toRadians(num1));
+      break;
+    case 'tan':
+      result = Math.tan(toRadians(num1));
+      break;
+    default:
+      result = 'Invalid operation';
+      break;
+  }
+
+  document.getElementById("output").innerText = result;
+}
+
+function toRadians(degrees) {
+  return degrees * (Math.PI / 180);
+}

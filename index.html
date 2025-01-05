@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Calculator</title>
+  <title>Scientific Calculator</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="calculator">
-    <h1>Calculator</h1>
+    <h1>Scientific Calculator</h1>
     
     <div class="inputs">
       <input type="number" id="input1" placeholder="Enter number 1" required>
@@ -18,29 +18,41 @@
 
     <div class="operators">
       <label>
-        <input type="radio" name="operation" value="add"> +
+        <input type="radio" name="operation" value="add" onclick="updateOperator('+')"> +
       </label>
       <label>
-        <input type="radio" name="operation" value="subtract"> -
+        <input type="radio" name="operation" value="subtract" onclick="updateOperator('-')"> -
       </label>
       <label>
-        <input type="radio" name="operation" value="multiply"> ×
+        <input type="radio" name="operation" value="multiply" onclick="updateOperator('×')"> ×
       </label>
       <label>
-        <input type="radio" name="operation" value="divide"> ÷
+        <input type="radio" name="operation" value="divide" onclick="updateOperator('÷')"> ÷
       </label>
       <label>
-        <input type="radio" name="operation" value="power"> ^ 
+        <input type="radio" name="operation" value="power" onclick="updateOperator('^')"> ^
       </label>
       <label>
-        <input type="radio" name="operation" value="log"> log 
+        <input type="radio" name="operation" value="modulus" onclick="updateOperator('%')"> %
       </label>
       <label>
-        <input type="radio" name="operation" value="modulus">  % 
+        <input type="radio" name="operation" value="sqrt" onclick="updateOperator('√')"> √
+      </label>
+      <label>
+        <input type="radio" name="operation" value="log" onclick="updateOperator('log')"> log
+      </label>
+      <label>
+        <input type="radio" name="operation" value="sin" onclick="updateOperator('sin')"> sin
+      </label>
+      <label>
+        <input type="radio" name="operation" value="cos" onclick="updateOperator('cos')"> cos
+      </label>
+      <label>
+        <input type="radio" name="operation" value="tan" onclick="updateOperator('tan')"> tan
       </label>
     </div>
 
-    <button id="evaluate">Evaluate</button>
+    <button id="evaluate" onclick="evaluateResult()">Evaluate</button>
     <div class="result">
       <h2>Result: <span id="output"></span></h2>
     </div>
